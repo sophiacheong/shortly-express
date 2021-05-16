@@ -49,10 +49,10 @@ The database table, __`users`__, and its corresponding model have been provided.
 You will be writing two custom middleware functions to configure your Express server. The first will be a cookie parser and the second will be a session generator. Though Express has its own middleware packages named __`cookie-parser`__ and __`express-session`__, you will be building this functionality from scratch (read as: you **should not** be using the __`cookie-parser`__ and __`express-session`__ middleware packages anywhere in your code). The database table, __`sessions`__, has been provided as a place to store your generated session hashes.
   - [ ] In __`middleware/cookieParser.js`__, write a middleware function that will access the cookies on an incoming request, parse them into an object, and assign this object to a __`cookies`__ property on the request.
   - [ ] In __`middleware/auth.js`__, write a __`createSession`__ middleware function that accesses the parsed cookies on the request, looks up the user data related to that session, and assigns an object to a __`session`__ property on the request that contains relevant user information. (Ask yourself: what information about the user would you want to keep in this session object?)
-   * Things to keep in mind:
-     * An incoming request with no cookies should generate a __`session`__ with a unique hash and store it the sessions database. The middleware function should use this unique hash to set a cookie in the response headers. (Ask yourself: How do I set cookies using Express?).
-     * If an incoming request has a cookie, the middleware should verify that the cookie is valid (i.e., it is a session that is stored in your database).
-     * If an incoming cookie is not valid, what do you think you should do with that session and cookie?
+    * Things to keep in mind:
+      * An incoming request with no cookies should generate a __`session`__ with a unique hash and store it the sessions database. The middleware function should use this unique hash to set a cookie in the response headers. (Ask yourself: How do I set cookies using Express?).
+      * If an incoming request has a cookie, the middleware should verify that the cookie is valid (i.e., it is a session that is stored in your database).
+      * If an incoming cookie is not valid, what do you think you should do with that session and cookie?
   - [ ] Mount these two middleware functions in __`app.js`__ so that they are executed for all requests received by your server.
 
 ### Authenticated Routes ###
