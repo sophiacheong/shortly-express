@@ -15,8 +15,9 @@ module.exports.createSession = (req, res, next) => {
         throw session;
       }
     })
+    // initializes a new session
     .catch(() => {
-      return model.Sessions.create()
+      return models.Sessions.create()
         .then(results => {
           return models.Sessions.get({ id: results.insertId });
         })
